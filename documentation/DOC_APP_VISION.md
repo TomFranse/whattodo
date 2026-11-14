@@ -1,59 +1,44 @@
 # App vision & goals
 
-> **Vision status:** `DRAFT` — When every section below reflects your real product (delete placeholder bullets; write real prose), change `DRAFT` to `ACTIVE` on this line so agents treat this file as the product SSOT.
+> **Vision status:** `ACTIVE`
 
-Static, **fill-in** product brief for this fork. Agents read this before ambiguous product or UX work. **SSOT** for problem, persona, and the app’s role relative to users.
+Static product brief for What to Do. Agents read this before ambiguous product or UX work. **SSOT** for problem, persona, and the app’s role relative to users.
 
 ---
 
 ## Problem statement
 
-_(Replace this heading’s body with 2–6 sentences. What pain, risk, inefficiency, or gap exists today? What happens if nobody solves it?)_
-
-**Placeholder (delete and substitute):**
-
-- _Who feels the pain?_
-- _What triggers the need for this app?_
-- _What have they tried already?_
+Millennials who want to hang out and do fun things with friends don't keep track of everything that is going on in Utrecht. To find out, they check the Utrecht UiT agenda, neighbourhood magazines, posters at bus stops and the agendas of the major venues. That means checking many places, because nothing aggregates them. Filtering and search on those sites are poor: the categories don't let you refine, so if you like a certain music genre you can't find music like that. Even the biggest agenda, the UiT agenda, covers only cultural activities (no sports events, for example) and shows part of what's going on, not everything. Smaller agendas, down to single neighbourhoods, each cover another piece.
 
 ---
 
 ## User persona
 
-_(Replace with your primary user: role, typical context, technical comfort, constraints, and what “success” looks like for them in a day.)_
-
-**Placeholder (delete and substitute):**
-
-- **Name / label:** _e.g. “Operations lead at a 20-person org”_
-- **Goals:** _What they need to accomplish with the app_
-- **Frustrations:** _What slows them down today_
-- **Constraints:** _Time, access, devices, compliance, literacy, etc._
+- **Label:** a millennial in Utrecht who likes going out with friends
+- **Goals:** find fun things to do in the city that match what they're into
+- **Frustrations:** too many places to check, filters on categories that don't make sense, keyword search that misses what they mean, and a narrow selection on each site
 
 ---
 
 ## App’s role
 
-_(One short paragraph plus optional bullets: what this application **does** in the user’s world, and what it explicitly **does not** do — boundaries, non-goals, handoffs to other tools.)_
+What to Do crawls the event agendas of Utrecht, from the UiT agenda down to neighbourhood level, aggregates them in one place, and refers back to the website each event came from. People find things with one search bar that understands what they mean (semantic search over a vector embedding per event, not keyword search), with date and location filters outside the search bar, instead of endless category filters. Good metadata per event supports this.
 
-**Placeholder (delete and substitute):**
+What counts is any one-off event, of any kind: culture, nightlife, sports events and more. Recurring weekly activities are left out.
 
-- **In one sentence, this app:** _…_
-- **It is not:** _…_
-- **Integrates with / assumes:** _e.g. Supabase auth, external CRM — or “none yet”_
-
----
-
-## Optional: north-star goals
-
-_(Delete if unused.)_
-
-- **Goal 1:** _measurable or observable outcome_
-- **Goal 2:** _…_
+- **In one sentence, this app:** gathers everything there is to do in Utrecht in one place and makes it easy to find what you're into.
+- **It is not:** a ticket seller, a tool for planning outings, an app with user accounts, a place where people or venues submit events (not in v1), a guide to cities other than Utrecht, or a listing of recurring weekly activities (only one-off events are logged).
+- **Integrates with / assumes:** the event websites and agendas of Utrecht, which it crawls and links back to.
 
 ---
 
-## Optional: open questions
+## North-star goals
 
-_(Delete if unused. Use for decisions still pending.)_
+- **Goal 1 (coverage):** anything listed on another Utrecht "things to do" website is also on What to Do.
+- **Goal 2 (findability):** anything from another site is easier to find on What to Do than on that site itself.
 
-- _Question…_
+---
+
+## Open questions
+
+- **How people and agents reach the data:** a standard web interface for filtering the database, access for any web agent (for example Gemini reading the site), an MCP server so people connect the database to their own assistant such as Claude, or the app's own agentic search. The leaning is away from an own agentic search and toward semantic search combined with date and location filters; the access channel is still open.
