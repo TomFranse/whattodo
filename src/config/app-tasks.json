@@ -30,8 +30,8 @@
     "status": "to-do"
   },
   {
-    "title": "Decide whether the app uses anonymous sign-ins",
-    "description": "The app asks Supabase for an anonymous session on every visit and Supabase refuses (anonymous_provider_disabled, HTTP 422), twice per page load. Either enable anonymous sign-ins in the project (anonymous users get the authenticated role, so the feedback policy would admit them; review RLS first) or remove the call. Auth permission model: needs an owner decision.",
+    "title": "Remove the anonymous sign-in call",
+    "description": "Owner decision (2026-11-14, onboarding): What to Do has no user accounts and does not use anonymous sessions. Remove the anonymous session call in useAuthSession (and signInAnonymously in authService if nothing else uses it) through loop-plan remove-feature.md. Today Supabase refuses it (anonymous_provider_disabled, HTTP 422) twice per page load. Google sign-in code stays (owner: keep the code, not set up now). Error reporting stays: anon may call upsert_error_log.",
     "status": "to-do"
   },
   {
